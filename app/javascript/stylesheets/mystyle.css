@@ -1,0 +1,13 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.admin-login-text{
+  padding: 0 15px;
+  margin-top: 50px;
+  background-color: #dcdcdc;
+  font-size: 30px;
+}
+
