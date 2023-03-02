@@ -1,0 +1,58 @@
+<h1>商品新規登録</h1>
+
+<%= form_with model: @item, url: admin_items_path, method: :post do |f| %>
+ <div class="container">
+   <div class="col-7 mx-auto">
+
+  <div class="row">
+    <%= f.label :商品画像 %>
+    <%= f.file_field :image, accept: "image/*" %>
+  </div>
+
+  <div class="row">
+    <%= f.label :商品名 %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="row">
+    <%= f.label :商品説明 %>
+    <%= f.text_area :introduction %>
+  </div>
+
+
+
+  <div class="row">　　<!--セレクトボックス-->
+    <%= f.label :ジャンル %>
+    <%= f.select :genre_id, @genres.map{ |f| [f.name, f.id]}, { include_blank: '--選択してください--'} %>
+      <!--genre_idに右のidの値が送られる-->
+      <!--mapはeach文と同じように繰り返す-->
+  </div>
+
+  <div class="row">
+    <%= f.label :税抜価格 %>
+    <%= f.text_area :price %>
+  </div>
+
+  <div class="row">
+
+  <%= form_with(model: @item, local: true) do |form| %>
+
+    <%= form.label :販売ステータス %>
+
+      <%= form.radio_button :is_active, true %>
+      <%= form.label :is_active, '販売中', value: true %>
+
+
+      <%= form.radio_button :is_active, false %>
+      <%= form.label :is_active, '販売停止中', value: false %>
+
+<% end %>
+</div>
+
+<%= f.submit "新規登録", class:"btn btn-success" %>
+
+
+
+
+  </div>
+<% end %>
