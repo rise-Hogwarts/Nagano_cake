@@ -1,6 +1,25 @@
 <h1>商品詳細</h1>
+<div class="container">
 
+<div class="row">
+ <p>商品名</p>
+ <%= @item.name %>
+</div>
 
+<div class="row">
+ <p>商品説明</p>
+ <%= @item.introduction %>
+</div>
 
-<p>商品名</p>
-<%= @item.name %>
+<div class="row">
+ <p>ジャンル</p>
+ <%= @item.genre.name %>
+</div>
+
+<div class="row">
+ <p>税込価格<br/>
+    (税抜価格)</p>
+ <%= "#{(@item.price*1.1).round}(#{@item.price})円" %>
+</div>
+
+</div>
