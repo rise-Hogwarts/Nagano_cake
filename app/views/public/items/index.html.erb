@@ -3,9 +3,22 @@
     <h1>商品一覧</h1><%= "（全#{Item.count}件）" %>
   </div>
   <div class="row">
-    <% @items.each do |f| %>
+
+    <div class="d-flex flex-wrap">
+    <div class="col-3"></div>
+    <div class="col-9">
+    <% @items.each do |item| %>
+    <%= image_tag item.image, size: "150x100" %>
+    <%= link_to item_path(item.id) do %>
+    <%= item.name %>
     <% end %>
+    <%= "¥#{item.price}" %>
+    <% end %>
+    </div>
+    </div>
   </div>
+  <%= paginate @items %>
 </div>
+
 
 

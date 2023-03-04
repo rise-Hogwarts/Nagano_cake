@@ -1,0 +1,6 @@
+<%= image_tag @item.image, size: "300x200" %>
+
+<%= @item.name %>
+<%= @item.introduction %>
+
+<%= "¥#{(@item.price * 1.1).round}(税込)" %>
