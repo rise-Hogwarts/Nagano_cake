@@ -1,1 +1,11 @@
-<h1>商品一覧</h1>
+<div class="container">
+  <div class="row">
+    <h1>商品一覧</h1><%= "（全#{Item.count}件）" %>
+  </div>
+  <div class="row">
+    <% @items.each do |f| %>
+    <% end %>
+  </div>
+</div>
+
+
