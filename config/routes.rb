@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   scope module: :public do#顧客・会員
     root to: 'homes#top'
     get '/about' => 'homes#about'
+    get '/customers/confirm' => 'customers#confirm', as: 'confirm'
+    patch '/customers/withdraw' => 'customers#withdraw', as: 'withdraw'
     resources :items, only: [:index, :show]
     resources :customers, only: [:show, :edit, :update, :confirm, :withdraw]
     resources :cart_items, only: [:index, :update, :destroy, :destroy_all, :create]

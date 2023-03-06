@@ -1,7 +1,7 @@
 <h1>マイページ</h1>
 
 <h4>登録情報</h4>
-<%= link_to "編集する", edit_customer_path(@customer.id), class:"btn btn-success" %>
+<%= link_to "編集する", edit_customer_registration_path(resource_name), class:"btn btn-success" %>
 
 <table>
   <tr><td>氏名</td><td><%= @customer.last_name %><%= @customer.first_name %></td></tr>

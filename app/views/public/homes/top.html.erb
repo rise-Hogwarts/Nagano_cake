@@ -1,1 +1,23 @@
 <h5>ジャンル検索</h5>
+
+<div class="">
+<p>
+  ようこそ、ながのCAKEへ！<br>
+  このサイトは、ケーキ販売のECサイトになります。<br>
+  会員でない方も商品の閲覧はできますが、<br>
+  購入には会員登録が必要になります。
+</p>
+</div>
+
+<h4>新着商品</h4>
+
+<% @items.last(4).reverse_each do |item| %>
+<%= image_tag item.image, size: "150x100" %>
+<%= item.name %>
+<%= "¥#{item.price}" %>
+<% end %>
+
+
+<u class="text-primary"><%= link_to "全ての商品を見る >", items_path %></u>
+
+
