@@ -1,23 +1,29 @@
-<h5>ジャンル検索</h5>
 
-<div class="">
-<p>
+
+<div class="container">
+  <div class="row">
+    <div class="mx-auto">
+<p class="mt-5 border border-dark pt-4 pr-4 pb-4">
   ようこそ、ながのCAKEへ！<br>
   このサイトは、ケーキ販売のECサイトになります。<br>
   会員でない方も商品の閲覧はできますが、<br>
   購入には会員登録が必要になります。
 </p>
 </div>
+</div>
 
+<div class="col">
 <h4>新着商品</h4>
-
+</div>
 <% @items.last(4).reverse_each do |item| %>
-<%= image_tag item.image, size: "150x100" %>
-<%= item.name %>
+<%= image_tag item.image, size: "150x100" %><br>
+<%= item.name %><br>
 <%= "¥#{item.price}" %>
 <% end %>
 
 
 <u class="text-primary"><%= link_to "全ての商品を見る >", items_path %></u>
+
+</div>
 
 
