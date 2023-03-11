@@ -16,6 +16,9 @@ Rails.application.routes.draw do
     get '/about' => 'homes#about'
     get '/customers/confirm' => 'customers#confirm', as: 'confirm'
     patch '/customers/withdraw' => 'customers#withdraw', as: 'withdraw'
+    post '/cart_item/:id' => 'cart_items#update', as: 'cart_item'
+    delete '/cart_item/:id' => 'cart_items#destroy', as: 'destroy_cart_item'
+    delete '/cart_items' => 'cart_items#destroy_all', as: 'destroy_all_cart_items'
     resources :items, only: [:index, :show]
     resources :customers, only: [:show, :edit, :update, :confirm, :withdraw]
     resources :cart_items, only: [:index, :update, :destroy, :destroy_all, :create]

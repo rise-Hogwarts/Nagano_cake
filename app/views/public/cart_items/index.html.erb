@@ -1,4 +1,11 @@
-<h1>ショッピングカート</h1>
+<div class="row">
+  <div class="col">
+    <h4>ショッピングカート</h4>
+  </div>
+  <div class="col">
+    <%= link_to "カートを空にする", destroy_all_cart_items_path, method: :delete, class:"btn btn-danger btn-sm" %>
+  </div>
+</div>
 
 <table class="table">
   <thead>
@@ -14,13 +21,14 @@
   <tbody>
     <tr>
       <td><%= cart_item.item.name %></td>
-      <td><%= "#{(cart_item.item.price*1.1).floor}" %></td>
-      <td><%= form_with model: @cart_item, url: cart_items_path, method: :pacth do |f| %>
+      <td><%= cart_item.item.with_tax_price %></td>
+      <td><%= form_for :cart_item, url: cart_item_path(cart_item.id), method: :pacth do |f| %>
             <%= f.hidden_field :item_id, :value => cart_item.item.id %>
             <%= f.hidden_field :customer_id, :value => current_customer.id %>
             <%= f.select :amount, *[1..10] %><%= f.submit "変更", class:"btn btn-success" %>
           <% end %></td>
-      <td><%= "#{(cart_item.item.price*1.1).floor*cart_item.amount}" %></td>
+      <td><%= cart_item.subtotal %></td>
+      <td><%= link_to "削除する", destroy_cart_item_path(cart_item.id), method: :delete, class:"btn btn-danger btn-sm" %></td>
     </tr>
   </tbody>
   <% end %>
