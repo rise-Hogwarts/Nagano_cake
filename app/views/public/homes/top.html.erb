@@ -15,11 +15,16 @@
 <div class="col">
 <h4>新着商品</h4>
 </div>
+
+<div class="row">
 <% @items.last(4).reverse_each do |item| %>
+<div class="col">
 <%= image_tag item.image, size: "150x100" %><br>
 <%= item.name %><br>
 <%= "¥#{item.price}" %>
+</div>
 <% end %>
+</div>
 
 
 <u class="text-primary"><%= link_to "全ての商品を見る >", items_path %></u>
