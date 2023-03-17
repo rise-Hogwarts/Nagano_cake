@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    注文履歴詳細
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row ml-5">
+    <div class="col-6">
+      <strong>注文情報</strong>
+      <table class="table table-bordered">
+        <tr><td class="table-active">注文日</td><td><%= @order.created_at.strftime('%Y/%m/%d') %></td></tr>
+        <tr><td class="table-active">配送先</td><td><%= @order.address %></td></tr>
+        <tr><td class="table-active">支払方法</td><td><%= @order.payment_method_i18n %></td></tr>
+        <tr><td class="table-active">ステータス</td><td><%= @order.order_status_i18n %></td></tr>
+      </table>
+    </div>
+    <div class="col-3">
+      <!--<%# @order_details.each do |order_detail| %>-->
+      <!--<%# order_detail.item.price * order_detail.quantity %>-->
+      <!--<%# @total += order_detail.item.price * order_detail.quantity %>-->
+      <!--<%# end %>-->
+
+
+      <strong>請求情報</strong>
+      <table class="table table-bordered">
+        <tr><td class="table-active">商品合計</td><td><%= (@order.amount - 800).to_s(:delimited) %></td></tr>
+        <tr><td class="table-active">配送料</td><td><%= @order.postage %></td></tr>
+        <tr><td class="table-active"><strong>ご請求額</strong></td><td><%= (@order.amount).to_s(:delimited) %></td></tr>
+      </table>
+    </div>
+    </div>
+    <div class="row ml-5">
+      <div class="col-8">
+        <strong>注文内容</strong>
+        <table class="table table-bordered">
+          <thead class="table-active">
+            <tr>
+              <th>商品</th>
+              <th>単価（税込）</th>
+              <th>個数</th>
+              <th>小計</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td></td>
+            </tr>
+          </tbody>
+
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
