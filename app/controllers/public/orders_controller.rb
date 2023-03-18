@@ -38,7 +38,7 @@ class Public::OrdersController < ApplicationController
       @cart_items.each do |cart_item|
         @order_details = OrderDetail.new
         @order_details.order_id = @order.id
-        @order_details.item_id = cart_item.item_id
+        @order_details.item_id = cart_item.item.id
         @order_details.price = cart_item.item.price
         @order_details.quantity = cart_item.amount
         @order_details.production_status = "before"

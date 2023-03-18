@@ -42,13 +42,16 @@
               <th>小計</th>
             </tr>
           </thead>
-
+         <% @order_details.each do |order_detail|%>
           <tbody>
             <tr>
+              <td><%= order_detail.item.name %></td>
+              <td><%= (order_detail.price * 1.1).floor %></td>
+              <td></td>
               <td></td>
             </tr>
           </tbody>
-
+         <% end %>
         </table>
       </div>
     </div>
