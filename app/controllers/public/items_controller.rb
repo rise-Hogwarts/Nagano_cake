@@ -3,6 +3,7 @@ class Public::ItemsController < ApplicationController
 
   def index
     @items = Item.page(params[:page])
+    # ページネート用記述
   end
 
   def show

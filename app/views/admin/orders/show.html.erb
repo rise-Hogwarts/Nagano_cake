@@ -12,8 +12,9 @@
         <td><strong>
           注文ステータス
         </strong></td>
-        <td><%= form_for :order, url: admin_order_path(@order.id), method: :pacth do |f| %>
-              <%= f.select :order_status, [['入金待ち',0],['入金確認',1],['制作中',2],['発送準備中',3],['発送済み',4]] %>
+        <td><%= form_with model: @order, url: admin_order_path(@order.id), method: :patch do |f| %>
+              <%= f.select :order_status, Order.order_statuses.keys.map { |k| [t("enums.order.order_status.#{k}"), k] } %>
+              <%= f.submit "更新", class:"btn btn-success btn-sm" %>
               <% end %>
 </td>
       </tr>

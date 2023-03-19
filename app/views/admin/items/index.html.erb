@@ -1,31 +1,45 @@
-<h1>商品一覧</h1>
 
-<table class="table">
+<div class="container">
+  <div class="row">
+    <div class="col-3"><h4 class="table-active ml-5 mt-4 px-4">商品一覧</h4></div>
+    <div class="col-7"></div>
+    <div class="col-2 pt-3">
+      <%= link_to new_admin_item_path, class:'text-secondary' do %><i class="fa fa-plus-circle fa-3x"></i><% end %>
+    </div>
+  </div>
+
+<table class="table table-borderless mt-4">
   <thead class="thead-light">
     <tr>
-      <th>商品ID</th>
-      <th>商品名</th>
-      <th>税抜価格</th>
-      <th>ジャンル</th>
-      <th>ステータス</th>
+      <th class="align-middle col-1">商品ID</th>
+      <th class="align-middle col-4">商品名</th>
+      <th class="align-middle col-1">税抜価格</th>
+      <th class="align-middle col-4">ジャンル</th>
+      <th class="align-middle col-2">ステータス</th>
     </tr>
   </thead>
   <% @items.each do |item| %>
   <tbody>
     <tr>
-      <td><%= item.id %></td>
-      <td><%= link_to admin_item_path(item.id) do %><%= item.name %><% end %></td>
-      <td><%= item.price %></td>
-      <td><%= item.genre.name %></td>
+      <td class="align-middle"><%= item.id %></td>
+      <td class="align-middle"><%= link_to admin_item_path(item.id) do %><u class="text-dark"><%= item.name %></u><% end %></td>
+      <td class="align-middle"><%= item.price.to_s(:delimited) %></td>
+      <td class="align-middle"><%= item.genre.name %></td>
 
-      <td>
         <% if item.is_active == true %>
-          <p>販売中</p>
+          <td class="align-middle font-weight-bold text-success">販売中</td>
         <% elsif item.is_active == false %>
-          <p>販売停止中</p>
+          <td class="font-weight-bold text-secondary">販売停止中</td>
         <% end %>
       </td>
     </tr>
   </tbody>
   <% end %>
 </table>
+<div class="row">
+  <div class="mx-auto">
+    <%= paginate @items %>
+  </div>
+</div>
+</div>
+</html>
