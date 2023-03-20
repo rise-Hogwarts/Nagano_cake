@@ -1,46 +1,56 @@
-<h1>商品詳細</h1>
+
 <div class="container">
-<div class="row">
-<div class="col">
- <p><%= image_tag @item.image, size: "200x200" %></p>
+  <div class="row">
+    <h4 class="table-active px-3 m-4">商品詳細</h4>
+   </div>
+</div>
+<div class="container-flued">
+<div class="row mt-5">
+<div class="col-4 ml-5 px-5">
+ <p><%= image_tag @item.image, size: "300x250" %></p>
 </div>
 
 
 <div class="col">
 <div class="row">
- <p class="">商品名</p>
- <%= @item.name %>
+ <div class="col-2">
+ 商品名
+ </div>
+ <p class="h5"><%= @item.name %></p>
 </div>
 
-<div class="row">
- <p class="">商品説明</p>
- <%= @item.introduction %>
+<div class="row mt-3">
+ <div class="col-2">商品説明</div>
+ <p class="h5"><%= @item.introduction %></p>
 </div>
 
-<div class="row">
- <p>ジャンル</p>
- <%= @item.genre.name %>
+<div class="row mt-3">
+ <div class="col-2">ジャンル</div>
+ <p class="h5"><%= @item.genre.name %></p>
 </div>
 
-<div class="row">
- <p>税込価格<br/>
-    (税抜価格)</p>
- <%= "#{(@item.price*1.1).round}(#{@item.price})円" %>
+<div class="row mt-3">
+ <div class="col-2">税込価格<br/>
+    (税抜価格)</div>
+ <p class="h5"><%= "#{(@item.price*1.1).round}(#{@item.price})円" %></p>
 </div>
 
-<div class="row">
-  <p>販売ステータス</p>
+<div class="row mt-3">
+  <div class="col-2">販売ステータス</div>
 
   <% if @item.is_active == true %>
-    <p class="lead text-success">販売中</p>
+    <p class="lead font-weight-bold text-success">販売中</p>
   <% elsif @item.is_active == false %>
-    <p class="p-success">販売停止中</p>
+    <p class="lead font-weight-bold text-secondary">販売停止中</p>
   <% end %>
 
 </div>
-
-<%= link_to "編集する", edit_admin_item_path(@item.id), class:"btn btn-success btn-lg w-25" %>
-
+<div class="row mt-3">
+ <div class="col-1"></div>
+  <div class="col">
+    <%= link_to "編集する", edit_admin_item_path(@item.id), class:"btn btn-success btn-lg w-25" %>
+  </div>
+</div>
 
 
 </div>

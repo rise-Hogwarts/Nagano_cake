@@ -1,11 +1,17 @@
-<h4>会員一覧</h4>
+<div class="container">
+  <div class="row">
+    <h4 class="table-active ml-5 mt-4 px-4">会員一覧</h4>
+  </div>
+
+  <div class="row">
+    <div class="col-9 mt-3 mx-auto">
 <table class="table">
-  <thead>
+  <thead class="table-active">
     <tr>
-      <th>会員ID</th>
-      <th><u>氏名</u></th>
-      <th>メールアドレス</th>
-      <th>ステータス</th>
+      <th class="col-2">会員ID</th>
+      <th class="col-3"><u>氏名</u></th>
+      <th class="col-4">メールアドレス</th>
+      <th class="col-3">ステータス</th>
     </tr>
   </thead>
   <% @customers.each do |customer| %>
@@ -19,17 +25,18 @@
           <% end %>
       </td>
       <td><%= customer.email %></td>
-      <td>
         <% if customer.is_deleted == true %>
-          <p>退会</p>
+          <td class="align-middle font-weight-bold text-secondary">退会</td>
         <% elsif customer.is_deleted == false %>
-          <p>有効</p>
+          <td class="align-middle font-weight-bold text-success">有効</td>
         <% end %>
-      </td>
+
     </tr>
   </tbody>
   <% end %>
 </table>
-
+    </div>
+  </div>
+</div>
 
 

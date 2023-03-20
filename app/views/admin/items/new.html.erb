@@ -1,58 +1,83 @@
-<h1>商品新規登録</h1>
+<div class="container">
+  <div class="row">
+    <h4 class="table-active px-4 ml-5 mt-4">商品新規登録</h4>
+  </div>
 
 <%= form_with model: @item, url: admin_items_path, method: :post do |f| %>
- <div class="container">
-   <div class="col-7 mx-auto">
 
-  <div class="row">
-    <%= f.label :商品画像 %>
-    <%= f.file_field :image, accept: "image/*" %>
+
+<div class="col-9 mx-auto">
+  <div class="row ml-3 mt-4">
+    <div class="col-3">
+      <%= f.label :商品画像 %>
+    </div>
+
+      <div class="form-group">
+        <div class="field">
+            <%= f.file_field :image, accept: "image/*" %>
+        </div>
+      </div>
   </div>
-
-  <div class="row">
-    <%= f.label :商品名 %>
-    <%= f.text_field :name %>
+  <div class="row ml-3">
+    <div class="col-3">
+      <%= f.label :商品名 %>
+    </div>
+    <%= f.text_field :name, class:"w-50" %>
   </div>
-
-  <div class="row">
-    <%= f.label :商品説明 %>
-    <%= f.text_area :introduction %>
+  <div class="row ml-3 mt-3">
+    <div class="col-3">
+      <%= f.label :商品説明 %>
+    </div>
+    <%= f.text_area :introduction, class:"w-50 form-control border-dark", size:"20x10" %>
   </div>
+  <div class="row mt-3">　　<!--セレクトボックス-->
+     <div class="col-2">
+       <%= f.label :ジャンル %>
+     </div>
 
+   <div class="col-8">
+     <%= f.select :genre_id, @genres.map{ |f| [f.name, f.id]}, { include_blank: '--選択してください--'}, class:"w-75 p-1 ml-5" %>
+   </div>
 
-
-  <div class="row">　　<!--セレクトボックス-->
-    <%= f.label :ジャンル %>
-    <%= f.select :genre_id, @genres.map{ |f| [f.name, f.id]}, { include_blank: '--選択してください--'} %>
       <!--genre_idに右のidの値が送られる-->
       <!--mapはeach文と同じように繰り返す-->
   </div>
 
-  <div class="row">
-    <%= f.label :税抜価格 %>
-    <%= f.text_area :price %>
+  <div class="row ml-3 mt-3">
+    <div class="col-3">
+      <%= f.label :税抜価格 %>
+    </div>
+    <%= f.text_field :price, class:"w-50" %>円
   </div>
 
-  <div class="row">
-
+  <div class="row ml-3 mt-3">
   <%= form_with(model: @item, local: true) do |form| %>
+    <div class="col-3">
+      <%= form.label :販売ステータス %>
+    </div>
 
-    <%= form.label :販売ステータス %>
-
+     <div class="col-2">
       <%= form.radio_button :is_active, true %>
       <%= form.label :is_active, '販売中', value: true %>
+     </div>
 
-
+     <div class="col-2">
       <%= form.radio_button :is_active, false %>
       <%= form.label :is_active, '販売停止中', value: false %>
+     </div>
 
 <% end %>
 </div>
 
-<%= f.submit "新規登録", class:"btn btn-success" %>
+<div class="row mt-4">
+  <div class="col-5"></div>
+  <div class="col-3">
+    <%= f.submit "新規登録", class:"btn btn-success btn-lg" %>
+  </div>
+</div>
 
 
 
-
+</div>
   </div>
 <% end %>
