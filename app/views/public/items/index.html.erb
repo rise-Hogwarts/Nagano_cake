@@ -1,23 +1,30 @@
-<div class="container">
-  <div class="row">
-    <h1>商品一覧</h1><%= "（全#{Item.count}件）" %>
+<div class="container-fluid">
+  <div class="row pt-5">
+    <div class="col-3"></div>
+    <h4 class="font-weight-bold px-3">商品一覧</h4><%= "（全#{Item.count}件）" %>
   </div>
   <div class="row">
-
-    <div class="d-flex flex-wrap">
     <div class="col-3"></div>
     <div class="col-9">
+    <div class="d-flex flex-wrap">
     <% @items.each do |item| %>
-    <%= image_tag item.image, size: "150x100" %>
-    <%= link_to item_path(item.id) do %>
-    <%= item.name %>
-    <% end %>
-    <%= "¥#{item.price}" %>
+      <div class="mr-3">
+       <%= link_to item_path(item.id) do %>
+          <%= image_tag item.image, size: "220x150" %><br>
+          <p class="font-weight-bold text-dark"><%= item.name %><br>
+       <%= "¥#{item.price}" %></p>
+       <% end %>
+       </div>
     <% end %>
     </div>
     </div>
   </div>
-  <%= paginate @items %><!ページネート-->
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-2 mx-auto">
+     <%= paginate @items %><!--ページネート-->
+    </div>
+  </div>
 </div>
 
 
