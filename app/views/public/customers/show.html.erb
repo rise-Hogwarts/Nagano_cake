@@ -1,19 +1,38 @@
-<h1>マイページ</h1>
+<div class="container-fluid">
+  <div class="row mt-5">
+    <div class="col-2"></div>
+    <h4 class="table-active px-3">マイページ</h4>
+  </div>
 
-<h4>登録情報</h4>
-<%= link_to "編集する", edit_customer_registration_path(resource_name), class:"btn btn-success" %>
+<div class="row ml-5 mt-4">
+  <h4 class="font-weight-bold pt-1 mr-5">登録情報</h4>
+  <%= link_to "編集する", edit_customer_registration_path(resource_name), class:"btn btn-success px-4" %>
+</div>
 
-<table>
-  <tr><td>氏名</td><td><%= @customer.last_name %><%= @customer.first_name %></td></tr>
-  <tr><td>カナ</td><td><%= @customer.last_name_kana %><%= @customer.first_name_kana %></td></tr>
-  <tr><td>郵便番号</td><td><%= @customer.postal_code %></td></tr>
-  <tr><td>住所</td><td><%= @customer.address %></td></tr>
-  <tr><td>電話番号</td><td><%= @customer.telephone_number %></td></tr>
-  <tr><td>メールアドレス</td><td><%= @customer.email %></td></tr>
+<div class="col-6">
+<table class="table table-bordered mt-3 ml-4">
+  <tr><td class="table-active col-3">氏名</td><td><%= @customer.last_name %><%= @customer.first_name %></td></tr>
+  <tr><td class="table-active col-3">カナ</td><td><%= @customer.last_name_kana %><%= @customer.first_name_kana %></td></tr>
+  <tr><td class="table-active col-3">郵便番号</td><td><%= @customer.postal_code %></td></tr>
+  <tr><td class="table-active col-3">住所</td><td><%= @customer.address %></td></tr>
+  <tr><td class="table-active col-3">電話番号</td><td><%= @customer.telephone_number %></td></tr>
+  <tr><td class="table-active col-3">メールアドレス</td><td><%= @customer.email %></td></tr>
 </table>
+</div>
 
-<h4>配送先</h4>
-<%= link_to "一覧を見る", addresses_path, class:"btn btn-primary" %>
 
-<h4>注文履歴</h4>
-<%= link_to "一覧を見る", orders_path, class:"btn btn-primary" %>
+<div class="row ml-4 pt-4">
+  <div class="col-1 mr-3">
+    <h4 class="font-weight-bold text-nowrap">配送先</h4>
+  </div>
+  <%= link_to "一覧を見る", addresses_path, class:"btn btn-primary px-4" %>
+</div>
+
+<div class="row ml-4 pt-4">
+  <div class="col-1 mr-3">
+    <h4 class="font-weight-bold text-nowrap">注文履歴</h4>
+  </div>
+  <%= link_to "一覧を見る", orders_path, class:"btn btn-primary px-4" %>
+</div>
+
+</div>
