@@ -4,7 +4,7 @@
     <h4 class="table-active px-4 ml-4">配送先登録/一覧</h4>
   </div>
 
-<%= form_with model: @address, url: addresses_path, method: :post do |f| %>
+<%= form_with model: @address, url: addresses_path(current_customer.id), method: :post do |f| %>
 
 <div class="row ml-5 mt-4">
   <div class="col-2">

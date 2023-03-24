@@ -11,9 +11,9 @@
       <div class="mr-3">
        <%= link_to item_path(item.id) do %>
           <%= image_tag item.image, size: "220x150" %><br>
+       <% end %>
           <p class="font-weight-bold text-dark"><%= item.name %><br>
        <%= "¥#{item.price}" %></p>
-       <% end %>
        </div>
     <% end %>
     </div>

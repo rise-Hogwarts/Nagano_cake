@@ -31,11 +31,11 @@
     <table class="table col-8 ml-3">
       <thead class="table-active">
         <tr>
-          <th class="col-3">商品名</th>
-          <th class="col-2">単価（税込）</th>
+          <th class="col-4">商品名</th>
+          <th class="col-3">単価（税込）</th>
           <th class="col-2">数量</th>
-          <th class="col-2">小計</th>
-          <th class="col-3">制作ステータス</th>
+          <th class="col-3">小計</th>
+          <!--<th class="col-3">制作ステータス</th>-->
         </tr>
       </thead>
       <% @order.order_details.each do |order_detail| %>
@@ -45,11 +45,11 @@
           <td class="align-middle"><%= order_detail.item.with_tax_price.to_s(:delimited) %></td>
           <td class="align-middle"><%= order_detail.quantity %></td>
           <td class="align-middle"><%= (order_detail.item.with_tax_price * order_detail.quantity).to_s(:delimited) %></td>
-          <td class="align-middle"><%= form_with model: @order_detail, url: admin_order_detail_path(@order_detail.item.id), method: :patch do |f| %>
-                <%= f.select :production_status, OrderDetail.production_statuses.keys.map { |k| [t("enums.order_detail.production_status.#{k}"), k] } %>
-                <%= f.submit "更新", class:"btn btn-success btn-sm" %>
-                <% end %>
-          </td>
+          <!--<td class="align-middle"><%#= form_with model: @order_detail, url: admin_order_detail_path(@order_detail.item.id), method: :patch do |f| %>-->
+          <!--      <%#= f.select :production_status, OrderDetail.production_statuses.keys.map { |k| [t("enums.order_detail.production_status.#{k}"), k] } %>-->
+          <!--      <%#= f.submit "更新", class:"btn btn-success btn-sm" %>-->
+          <!--      <%# end %>-->
+          <!--</td>-->
         </tr>
       </tbody>
       <% end %>

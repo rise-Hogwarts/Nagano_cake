@@ -14,6 +14,6 @@
   <div class="col-4"></div>
   <div class="col-6">
   <%= link_to "退会しない", root_path, class:"btn btn-primary ml-3 mr-3 w-25" %>
-  <%= link_to "退会する", withdraw_path, method: :patch, data: { confilm: "本当に退会しますか？" }, class:"btn btn-danger w-25" %>
+  <%= link_to "退会する", withdraw_path, method: :patch, class:"btn btn-danger w-25", data: { confirm: '本当に退会しますか？'} %>
   </div>
 </div>

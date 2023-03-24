@@ -9,6 +9,22 @@ class Public::RegistrationsController < Devise::RegistrationsController
      super
    end
 
+
+protected
+
+    def after_sign_in_path_for(resource)
+      customer_path(current_customer.id)
+    end
+
+    def update_resource(resource, params)
+      resource.update_without_password(params)
+    end
+
+  # 編集後のリダイレクト先を指定するメソッド
+    def after_update_path_for(resource)
+      customer_path(current_customer.id)
+    end
+
   # POST /resource
   # def create
   #   super

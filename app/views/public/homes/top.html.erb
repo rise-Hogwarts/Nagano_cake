@@ -24,7 +24,9 @@
   <div class="col-3"></div>
 <% @items.last(4).reverse_each do |item| %>
 <div class="col-2 mr-4">
-<%= image_tag item.image, size: "200x150" %><br>
+<%= link_to item_path(item.id) do %>
+  <%= image_tag item.image, size: "200x150" %><br>
+<% end %>
 <p class="font-weight-bold"><%= item.name %><br>
 <%= "¥#{item.price.to_s(:delimited)}" %></p>
 </div>
